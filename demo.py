@@ -34,12 +34,14 @@ def main(args):
         from TDDFA_ONNX import TDDFA_ONNX
 
         face_boxes = FaceBoxes_ONNX()
+        print("Face boxes loaded")
         tddfa = TDDFA_ONNX(**cfg)
     else:
         gpu_mode = args.mode == 'gpu'
         tddfa = TDDFA(gpu_mode=gpu_mode, **cfg)
         face_boxes = FaceBoxes()
 
+    print("Loading files")
     list_files = sorted(glob.glob(args.img_fp))
     for img_fp in list_files:
         # Given a still image path and load to BGR channel
