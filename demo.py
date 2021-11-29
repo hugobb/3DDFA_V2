@@ -6,7 +6,6 @@ import sys
 import argparse
 import cv2
 import yaml
-import glob
 
 from FaceBoxes import FaceBoxes
 from TDDFA import TDDFA
@@ -19,6 +18,7 @@ from utils.pose import viz_pose
 from utils.serialization import ser_to_ply, ser_to_obj
 from utils.functions import draw_landmarks, get_suffix
 from utils.tddfa_util import str2bool
+from pathlib import Path
 
 
 def main(args):
@@ -44,10 +44,9 @@ def main(args):
         face_boxes = FaceBoxes()
 
     print("Loading files")
-    list_files = sorted(glob.glob(args.img_fp))
+    list_files = sorted(Path(args.img_fp).glob("*.png"))
     for img_fp in list_files:
         # Given a still image path and load to BGR channel
-        print(img_fp)
         img = cv2.imread(img_fp)
 
         # Detect faces, get 3DMM params and roi boxes
