@@ -33,6 +33,7 @@ def main(args):
         from FaceBoxes.FaceBoxes_ONNX import FaceBoxes_ONNX
         from TDDFA_ONNX import TDDFA_ONNX
 
+        print("Loading face boxes")
         face_boxes = FaceBoxes_ONNX()
         print("Face boxes loaded")
         tddfa = TDDFA_ONNX(**cfg)
