@@ -47,6 +47,7 @@ def main(args):
     list_files = sorted(glob.glob(args.img_fp))
     for img_fp in list_files:
         # Given a still image path and load to BGR channel
+        print(img_fp)
         img = cv2.imread(img_fp)
 
         # Detect faces, get 3DMM params and roi boxes
