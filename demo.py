@@ -22,6 +22,7 @@ from utils.tddfa_util import str2bool
 
 
 def main(args):
+    print("Starting script...")
     cfg = yaml.load(open(args.config), Loader=yaml.SafeLoader)
 
     # Init FaceBoxes and TDDFA, recommend using onnx flag
